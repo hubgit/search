@@ -261,6 +261,11 @@ export function getSearchQuery(state: EditorState) {
   return curState ? curState.query.spec : defaultQuery(state)
 }
 
+/// Get the current search query type from an editor state.
+export function getSearchQueryType(state: EditorState): QueryType | undefined {
+  return state.field(searchState, false)?.query
+}
+
 class SearchState {
   constructor(readonly query: QueryType, readonly panel: PanelConstructor | null) {}
 }
